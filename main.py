@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from cryptography.hazmat.primitives import serialization, hashes
 from cryptography.hazmat.primitives.asymmetric import padding
@@ -7,6 +8,7 @@ import hashlib
 import os
 
 app = Flask(__name__)
+CORS(app)
 
 # Configuration for SQLite
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///license.db"
